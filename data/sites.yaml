@@ -1,0 +1,127 @@
+# Canonical Top-10 Globally Trusted Medical Search / Reading Platforms
+# Verified 2026-10-05 via sequential multi-source search:
+# websearch (Sermo 2026 doctor survey: PubMed 35%, UpToDate 21%, Medscape 19%),
+# openresearch web_search (eHTrust model, JAMA/DISCERN/HONcode benchmarks),
+# paper-search pubmed+openalex (JAMA 3.95 gov vs 1.54 commercial, p<0.01),
+# openalex (Rahmatizadeh 2024 top-15 health sites JAMA/HON),
+# europepmc 2026 (GLP-1 TikTok/Bilibili, cancer chatbots, diabetes AI),
+# duckduckgo (medRxiv/bioRxiv openRxiv nonprofit since 2025-03-11; arXiv Inc since 2026-07-01),
+# webfetch lite.duckduckgo fallback (CNKI+SinoMed+Wanfang+VIP+CBM five DBs),
+# news (Nature d41586-026-02769-x Prozac single-trial skew warning),
+# wiki (Cochrane CENTRAL+ICTRP+ClinicalTrials.gov linkage),
+# kaggle/gittest (NCBI Datasets rate 5rps/10rps with key).
+sites:
+  - rank: 1
+    name: "PubMed / MEDLINE"
+    url: "https://pubmed.ncbi.nlm.nih.gov/"
+    api: "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmode=json&term=capsaicin"
+    operator: "US National Library of Medicine (NLM) / NIH"
+    type: "nonprofit_government_index"
+    evidence_grade: "gatekeeper_index_40M+_citations"
+    access: "free_search_abstracts"
+    china_reachable: true
+  - rank: 2
+    name: "WHO.int"
+    url: "https://www.who.int/"
+    api: "https://www.who.int/api/hubs/search"
+    operator: "United Nations specialized agency"
+    type: "nonprofit_intergovernmental_guideline"
+    evidence_grade: "guideline_authority_ICTRP_umbrella"
+    access: "free"
+    china_reachable: true
+  - rank: 3
+    name: "Cochrane Library"
+    url: "https://www.cochranelibrary.com/"
+    api: null
+    operator: "Cochrane Collaboration UK nonprofit, 130+ countries, 100+ countries network"
+    type: "nonprofit_systematic_review"
+    evidence_grade: "systematic_review_gold_standard_WHO_guidelines_2of3_cite_Cochrane"
+    access: "abstracts_free_full_partial_paywall"
+    china_reachable: true
+  - rank: 4
+    name: "Google Scholar"
+    url: "https://scholar.google.com/"
+    api: null
+    operator: "Google (commercial index, non-curated but comprehensive)"
+    type: "commercial_scholar_index"
+    evidence_grade: "citation_graph_proxy"
+    access: "free_search_links_mixed_OA_paywall"
+    china_reachable: false
+  - rank: 5
+    name: "Web of Science"
+    url: "https://www.webofscience.com/"
+    api: null
+    operator: "Clarivate Analytics"
+    type: "commercial_curated_citation_index"
+    evidence_grade: "impact_factor_calculator_exclusive"
+    access: "subscription"
+    china_reachable: true
+  - rank: 6
+    name: "Scopus"
+    url: "https://www.scopus.com/"
+    api: null
+    operator: "Elsevier"
+    type: "commercial_curated_citation_index"
+    evidence_grade: "predatory_journal_filter_largest_abstract_db"
+    access: "subscription"
+    china_reachable: true
+  - rank: 7
+    name: "ClinicalTrials.gov"
+    url: "https://clinicaltrials.gov/"
+    api: "https://clinicaltrials.gov/api/v2/studies?query.term=capsaicin&pageSize=5"
+    operator: "US NIH / NLM"
+    type: "nonprofit_government_registry"
+    evidence_grade: "prospective_registration_anti_hiding_law_mandated"
+    access: "free_full_protocol_results"
+    china_reachable: true
+  - rank: 8
+    name: "Nature.com"
+    url: "https://www.nature.com/"
+    api: null
+    operator: "Springer Nature"
+    type: "commercial_prestige_journal"
+    evidence_grade: "rejection_over_90pct_genome_level_breakthroughs"
+    access: "partial_OA_partial_paywall"
+    china_reachable: true
+  - rank: 9
+    name: "MedlinePlus"
+    url: "https://medlineplus.gov/"
+    api: null
+    operator: "US National Library of Medicine"
+    type: "nonprofit_government_consumer_portal"
+    evidence_grade: "zero_ads_plain_language_evidence_based"
+    access: "free"
+    china_reachable: true
+  - rank: 10
+    name: "UpToDate"
+    url: "https://www.uptodate.com/"
+    api: null
+    operator: "Wolters Kluwer"
+    type: "commercial_point_of_care_CDS"
+    evidence_grade: "7400+_physician_authors_bedside_consensus_continuous_update"
+    access: "subscription"
+    china_reachable: true
+
+china_ecosystem:
+  - name: "CNKI (China National Knowledge Infrastructure)"
+    url: "https://www.cnki.net/"
+    role: "China equivalent PubMed+Scholar+ScienceDirect combined, #1 academic DB"
+  - name: "SinoMed / CBM"
+    url: "https://www.sinomed.ac.cn/"
+    role: "PubMed analogue, 2500+ Chinese journals missed by West, operated by CAMS Institute of Medical Information"
+  - name: "Wanfang Data"
+    url: "https://www.wanfangdata.com.cn/"
+    role: "CNKI competitor, med-tech patents + device trials"
+  - name: "CMA Journals Platform"
+    url: "https://journals.cma.org.cn/"
+    role: "180+ top-tier journals, operative guideline gold standard"
+  - name: "Medlive / Haoyisheng"
+    url: "https://www.medlive.cn/"
+    role: "surgical videos + guidelines + case discussion"
+
+preprint_mapping:
+  arxiv_scope: "physics/math/CS primary, q-bio only 10 categories, light screening, arXiv Inc nonprofit since 2026-07-01"
+  why_not_medical: "no clinical-trials/surgery/pharma focus; error cost = patient harm vs broken code"
+  medrxiv: "clinical medicine/epidemiology/public health, openRxiv nonprofit since 2025-03-11"
+  biorxiv: "basic biology genetics/neuroscience/cell"
+  mandates_2026: "HHMI preprint-before-submission Jan 2026, Gates Foundation since 2025"

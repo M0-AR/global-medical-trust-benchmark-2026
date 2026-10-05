@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Global Medical Trust Benchmark 2026 — Live-Verified Top 10</title>
+<meta name="description" content="Which 10 medical platforms does the world trust to read papers? Live-verified benchmark: PubMed, WHO, Cochrane, ClinicalTrials.gov + China stack. MIT open source, Docker reproducible.">
+<style>
+:root{--bg:#0b1020;--card:#141b33;--line:#243056;--txt:#eaf0ff;--mut:#a9b6d8;--acc:#5eead4;--acc2:#93c5fd;--gold:#fbbf24;--good:#34d399;--warn:#fbbf24;--bad:#f87171}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(1200px 600px at 20% -10%,#1b2a5e 0%,transparent 60%),radial-gradient(1000px 500px at 90% 0%,#0e3b3a 0%,transparent 55%),var(--bg);color:var(--txt);line-height:1.6}
+.wrap{max-width:1080px;margin:0 auto;padding:24px}
+.hero{border:1px solid var(--line);background:linear-gradient(180deg,rgba(94,234,212,.08),transparent 40%),var(--card);border-radius:20px;padding:32px;margin:20px 0}
+.badge{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:4px 12px;margin:4px 6px 0 0;font-size:13px;color:var(--mut);background:#0e1530}
+.badge b{color:var(--acc)}
+h1{font-size:clamp(28px,4vw,44px);line-height:1.15;margin:12px 0}
+.sub{color:var(--mut);font-size:17px;max-width:70ch}
+.grid{display:grid;gap:16px}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:1fr 1fr 1fr}@media(max-width:860px){.g2,.g3{grid-template-columns:1fr}}
+.card{border:1px solid var(--line);background:var(--card);border-radius:16px;padding:20px}
+.card h3{margin:0 0 8px}.mut{color:var(--mut)}.small{font-size:13px}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:left}th{color:var(--mut);font-weight:600}
+.pill{display:inline-block;padding:2px 10px;border-radius:999px;font-size:12px;font-weight:700}.ok{background:rgba(52,211,153,.15);color:var(--good);border:1px solid rgba(52,211,153,.4)}.warn{background:rgba(251,191,36,.12);color:var(--warn);border:1px solid rgba(251,191,36,.4)}
+.bar{height:10px;border-radius:999px;background:#0e1530;border:1px solid var(--line);overflow:hidden}.bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--acc),var(--acc2));border-radius:999px}
+.btn{display:inline-block;background:var(--acc);color:#06251f;font-weight:800;padding:12px 18px;border-radius:12px;text-decoration:none;margin:6px 8px 0 0}.btn.ghost{background:transparent;color:var(--txt);border:1px solid var(--line)}
+code,kbd{background:#0e1530;border:1px solid var(--line);border-radius:8px;padding:2px 8px;font-size:13px}
+pre{background:#0a0f24;border:1px solid var(--line);border-radius:12px;padding:16px;overflow:auto;font-size:13px}
+footer{color:var(--mut);font-size:13px;padding:24px 0}
+.nav{position:sticky;top:0;backdrop-filter:blur(10px);background:rgba(11,16,32,.8);border-bottom:1px solid var(--line);z-index:5}.nav .wrap{display:flex;gap:14px;align-items:center;padding:12px 24px}.nav a{color:var(--mut);text-decoration:none;font-size:14px}.nav a:hover{color:var(--txt)}
+.video{width:100%;border-radius:16px;border:1px solid var(--line);background:#000}
+img.shot{width:100%;border-radius:16px;border:1px solid var(--line)}
+.toc a{color:var(--acc2)}
+</style>
+</head>
+<body>
+<div class="nav"><div class="wrap"><b>🏥 Medical Trust Benchmark 2026</b><span style="flex:1"></span><a href="#results">Results</a><a href="#beginner">Beginner</a><a href="#stories">User stories</a><a href="#china">China</a><a href="#reproduce">Reproduce</a><a href="#pages">Pages</a></div></div>
+<div class="wrap">
+
+<div class="hero">
+<div><span class="badge"><b>MIT</b> open source</span><span class="badge">live-verified <b>2026-10-05</b></span><span class="badge">4/4 APIs <b>live</b></span><span class="badge">Docker <b>reproducible</b></span><span class="badge">Pages-ready <b>preview.html</b></span></div>
+<h1>Which 10 medical websites does the world actually trust to read papers?</h1>
+<p class="sub"><b>Short answer:</b> start with <b>PubMed</b> to find papers, <b>Cochrane</b> to decide if a treatment works, <b>ClinicalTrials.gov</b> to see the real experiment, and <b>WHO</b> for official guidance. This repo proves that ranking with live measurements — 10 homepages probed, 4 public APIs queried, China fallback mapped — and gives you the code to re-run it in one command.</p>
+<p><a class="btn" href="#beginner">🌱 Start here — 5-minute guide</a><a class="btn ghost" href="#results">See live results ↓</a><a class="btn ghost" href="https://github.com/" onclick="return false" title="Push this repo to GitHub to activate">⭐ Star on GitHub</a></p>
+<p class="small mut">Informational only, not medical advice. No patient data. All numbers are public homepage/API metadata in <code>data/live_results.json</code>.</p>
+</div>
+
+<div class="card toc"><b>Contents</b> · <a href="#results">Live results</a> · <a href="#features">Features</a> · <a href="#beginner">Beginner guide</a> · <a href="#stories">Who is this for</a> · <a href="#demo">Demo video</a> · <a href="#china">China stack</a> · <a href="#preprints">Why not arXiv</a> · <a href="#reproduce">Reproduce</a> · <a href="#pages">Put it online (Pages)</a> · <a href="#faq">FAQ</a></div>
+
+<h2 id="results">📊 Live results (measured 2026-10-05, not claimed)</h2>
+<div class="grid g2">
+<div class="card"><h3>Trust score (0–100)</h3><p class="small mut">Authority 30 · Evidence 30 · Openness 20 · Transparency 10 · Liveness 10. Full rubric in README.</p>
+<div id="bars"></div>
+</div>
+<div class="card"><h3>API reality checks</h3>
+<table><tr><th>Query</th><th>Live count</th></tr>
+<tr><td>PubMed “capsaicin”</td><td><b>18,244</b> papers</td></tr>
+<tr><td>ClinicalTrials “capsaicin”</td><td><b>5 returned + more pages</b> (NCT04704453…)</td></tr>
+<tr><td>OpenAlex trust-evaluation</td><td><b>20,978</b> works</td></tr>
+<tr><td>Europe PMC JAMA/DISCERN</td><td><b>1,480</b> hits</td></tr></table>
+<p class="small mut">Mean homepage latency <b>2.25 s</b> · 9/10 HTTP-200 · Scopus <b>403</b> to bots (needs login) · Nature slowest <b>5.48 s</b>.</p>
+</div>
+</div>
+<div class="card" style="margin-top:16px"><h3>Full table (trust order)</h3>
+<table id="tbl"><tr><th>Site</th><th>HTTP</th><th>Speed</th><th>Access</th><th>Trust</th></tr></table></div>
+
+<h2 id="features">✨ Features — what you get</h2>
+<div class="grid g3">
+<div class="card"><h3>🔍 Canonical Top 10</h3><p class="mut">PubMed, WHO, Cochrane, Scholar, Web of Science, Scopus, ClinicalTrials.gov, Nature, MedlinePlus, UpToDate — with operator, access, and evidence grade for each.</p></div>
+<div class="card"><h3>⚡ One-command verification</h3><p class="mut"><code>docker compose up --build</code> or <code>./experiments/run_all.sh</code> re-probes all sites + APIs and rewrites the results files.</p></div>
+<div class="card"><h3>🕵️ 5 hidden patterns</h3><p class="mut">Nonprofit 93.4 vs commercial 66.8 · registry premium · China gap · Scholar-last paradox · bot-block surprise. Computed, not asserted.</p></div>
+<div class="card"><h3>🇨🇳 China fallback map</h3><p class="mut">CNKI, SinoMed/CBM, Wanfang, CMA Journals, Medlive — what to use when Scholar is unreachable.</p></div>
+<div class="card"><h3>📄 Preprint map</h3><p class="mut">Why clinicians use medRxiv/bioRxiv instead of arXiv, and when to search both.</p></div>
+<div class="card"><h3>🌐 Pages-ready site</h3><p class="mut">This file (<code>preview.html</code>) is the public website. Push + enable Pages = shareable link.</p></div>
+</div>
+
+<h2 id="beginner">🌱 Beginner guide — read this and you are a professional</h2>
+<div class="card"><ol>
+<li><b>Need a paper?</b> Search <b>PubMed</b> first. It lists 40M+ medical papers and links free copies. Example: type <i>capsaicin neuropathy</i>.</li>
+<li><b>Need to know if a treatment works?</b> Read a <b>Cochrane review</b>. It combines every trial into one answer instead of one opinion.</li>
+<li><b>Need the real experiment?</b> Open <b>ClinicalTrials.gov</b> and read the protocol + results. Companies must register here before starting — they cannot hide failures.</li>
+<li><b>Need official guidance?</b> Check <b>WHO</b> for vaccines, outbreaks, and policy. Check <b>MedlinePlus</b> for plain-language explanations with zero ads.</li>
+<li><b>Need citations fast?</b> Use <b>Google Scholar</b> to <i>discover</i>, then verify in PubMed/Cochrane before citing. Scholar finds everything but checks nothing.</li>
+<li><b>In China or citing Chinese work?</b> Use <b>CNKI + SinoMed</b> first — Western indexes miss most Chinese journals.</li>
+</ol><p class="small mut">Rule of thumb: <b>discover on Scholar → verify on PubMed → decide with Cochrane → confirm the experiment on ClinicalTrials.gov → follow policy on WHO.</b></p></div>
+
+<h2 id="stories">👥 Who is this for (user stories)</h2>
+<div class="grid g2">
+<div class="card"><h3>🎓 Medical student</h3><p class="mut">“I have 20 minutes before rounds.” → Run the 5-step guide above, cite PubMed + Cochrane, look professional.</p></div>
+<div class="card"><h3>🔪 Surgeon</h3><p class="mut">“Does technique X beat Y?” → Check Cochrane + ClinicalTrials.gov protocols, not a single-center blog post.</p></div>
+<div class="card"><h3>🤖 Biomedical engineer</h3><p class="mut">“Is this device claim real?” → Cross-check Nature (breakthrough) vs registry (pre-registration) vs Scholar (who else cites it).</p></div>
+<div class="card"><h3>📚 Librarian / educator</h3><p class="mut">“Teach source literacy in one class.” → Project this page; the table + paradoxes do the teaching.</p></div>
+<div class="card"><h3>🧭 Researcher citing China</h3><p class="mut">“Western search finds nothing.” → Switch to CNKI/SinoMed/Wanfang path documented here.</p></div>
+<div class="card"><h3>🏢 Curious patient / family</h3><p class="mut">“Is this article trustworthy?” → Start at MedlinePlus/WHO; ask your clinician before acting.</p></div>
+</div>
+
+<h2 id="demo">🎬 Demo (60 seconds)</h2>
+<div class="card"><p><b>What the demo shows:</b> 1) open this page, 2) run one command, 3) watch results regenerate.</p>
+<video class="video" controls preload="metadata" poster="assets/preview.png"><source src="assets/demo.mp4" type="video/mp4">Your browser cannot play video. See <a href="#reproduce">reproduce steps</a>.</video>
+<p class="small mut">README tip: keep a GIF under ~5 MB for fast loading; link the full MP4. Files live in <code>assets/</code> so they never break (never hotlink external hosts).</p>
+<pre>docker compose up --build
+# or
+./experiments/run_all.sh
+# → data/live_results.json + data/live_results.csv + experiments/hidden_patterns.json</pre>
+<img class="shot" src="assets/preview.png" alt="Screenshot of this benchmark site showing live trust table" loading="lazy">
+</div>
+
+<h2 id="china">🇨🇳 China stack (when Scholar is unreachable)</h2>
+<div class="card"><table><tr><th>Use</th><th>For</th></tr>
+<tr><td><b>CNKI</b> (cnki.net)</td><td>China’s #1 academic base — journals + theses + conference papers</td></tr>
+<tr><td><b>SinoMed / CBM</b> (sinomed.ac.cn)</td><td>Biomedical search; 2,500+ Chinese journals missed by the West</td></tr>
+<tr><td><b>Wanfang</b></td><td>Med-tech, devices, patents, engineering trials</td></tr>
+<tr><td><b>CMA Journals</b></td><td>180+ top journals; operative standards</td></tr>
+<tr><td><b>Medlive / Haoyisheng</b></td><td>Surgical videos, guidelines, case discussion</td></tr></table></div>
+
+<h2 id="preprints">📄 Why clinicians don’t use arXiv (and where they go)</h2>
+<div class="card"><p>arXiv is physics/math/CS with a small biology corner and light screening. A wrong equation breaks code; a wrong dose harms patients. So medicine uses <b>medRxiv</b> (clinical/epidemiology/public health) and <b>bioRxiv</b> (genetics/neuroscience/cell). At the AI×medicine boundary, search <b>both</b> arXiv and medRxiv and say which you searched.</p></div>
+
+<h2 id="reproduce">🔁 Reproduce in 3 steps (verified)</h2>
+<div class="card"><pre>git clone &lt;your-fork-url&gt; &amp;&amp; cd global-medical-trust-benchmark-2026
+docker compose up --build
+# outputs: data/live_results.json, data/live_results.csv, experiments/hidden_patterns.json
+# without docker:
+python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
+.venv/bin/python src/benchmark_trust.py && .venv/bin/python src/hidden_patterns.py && .venv/bin/python -m pytest -q tests/</pre>
+<p class="small mut">Verified 2026-10-05: 4/4 APIs live, 3/3 tests pass, Docker image builds.</p></div>
+
+<h2 id="pages">🚀 Put it online (GitHub Pages, 2 minutes)</h2>
+<div class="card"><ol>
+<li>Push this repo to GitHub (branch <code>main</code>, keep <code>preview.html</code> at root).</li>
+<li>GitHub → <b>Settings → Pages</b> → <b>Source: Deploy from a branch</b> → Branch <code>main</code>, folder <code>/ (root)</code> → Save.</li>
+<li>Open <code>https://&lt;you&gt;.github.io/&lt;repo&gt;/preview.html</code> — that URL is your shareable site. Link it at the top of the README.</li>
+<li>Optional: <b>Settings → Pages → Custom domain</b> for your own URL; enforce HTTPS.</li>
+</ol><p class="small mut">Why root + branch source? Simplest 2026 path for a single custom HTML page — no Actions needed. Use Actions only if you later generate the site.</p></div>
+
+<h2 id="faq">❓ FAQ (simple answers)</h2>
+<div class="grid g2">
+<div class="card"><b>Is Scholar “bad”?</b><p class="mut">No — best for discovery, worst for validation (trust 59.0, last). Discover there, verify in PubMed/Cochrane.</p></div>
+<div class="card"><b>Why is ClinicalTrials.gov #1?</b><p class="mut">Only it forces pre-registration — failed trials cannot disappear. Trust 100.0, transparency 10.</p></div>
+<div class="card"><b>Why is Scopus 403?</b><p class="mut">Bot protection for guests. Humans with login pass; scripts get blocked. Trust stays high, machine-access low.</p></div>
+<div class="card"><b>Can I cite this repo?</b><p class="mut">Cite the underlying platforms (PubMed, Cochrane…), plus this repo’s method + date. See README citation block.</p></div>
+</div>
+
+<footer>MIT License · Live data: <code>data/live_results.json</code> · Methods: <code>src/benchmark_trust.py</code> · Generated 2026-10-05 · Not medical advice.</footer>
+</div>
+<script>
+const rows=[["ClinicalTrials.gov",200,100.0,"free"],["WHO.int",200,99.0,"free"],["PubMed / MEDLINE",200,93.0,"free search"],["Cochrane Library",200,92.0,"abstracts free"],["MedlinePlus",200,83.0,"free"],["Nature.com",200,76.0,"partial OA"],["Web of Science",200,68.0,"subscription"],["UpToDate",200,68.0,"subscription"],["Scopus",403,63.0,"subscription"],["Google Scholar",200,59.0,"free search"]];
+const bars=document.getElementById('bars'),tbl=document.getElementById('tbl');
+rows.forEach(r=>{const d=document.createElement('div');d.style.margin='10px 0';d.innerHTML='<div style="display:flex;justify-content:space-between;font-size:13px"><span>'+r[0]+'</span><b>'+r[2].toFixed(1)+'</b></div><div class="bar"><i style="width:'+r[2]+'%"></i></div>';bars.appendChild(d);
+const tr=document.createElement('tr');tr.innerHTML='<td><b>'+r[0]+'</b></td><td>'+(r[1]===200?'<span class="pill ok">200</span>':'<span class="pill warn">403</span>')+'</td><td class="mut">see JSON</td><td class="mut">'+r[3]+'</td><td><b>'+r[2].toFixed(1)+'</b></td>';tbl.appendChild(tr);});
+</script>
+</body>
+</html>

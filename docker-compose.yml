@@ -1,0 +1,19 @@
+services:
+  benchmark:
+    build: .
+    container_name: medtrust-benchmark
+    volumes:
+      - ./data:/app/data
+      - ./experiments:/app/experiments
+    command: bash -c "python src/benchmark_trust.py && python src/hidden_patterns.py"
+    mem_limit: 1g
+
+  verify:
+    build: .
+    container_name: medtrust-verify
+    volumes:
+      - ./data:/app/data
+      - ./experiments:/app/experiments
+    command: bash -c "pytest -q tests/"
+    depends_on:
+      - benchmark

@@ -1,0 +1,11 @@
+rank_claimed,name,http_status,http_ok,latency_s,content_bytes,trust_100,authority,evidence,openness,transparency,liveness,url
+7,ClinicalTrials.gov,200,True,1.5,94323,100.0,10,10,10,10,10,https://clinicaltrials.gov/
+2,WHO.int,200,True,1.81,135452,99.0,10,10,10,9,10,https://www.who.int/
+1,PubMed / MEDLINE,200,True,1.69,42314,93.0,10,10,7,9,10,https://pubmed.ncbi.nlm.nih.gov/
+3,Cochrane Library,200,True,2.27,152501,92.0,10,10,6,10,10,https://www.cochranelibrary.com/
+9,MedlinePlus,200,True,1.44,26483,83.0,9,6,10,8,10,https://medlineplus.gov/
+8,Nature.com,200,True,5.48,237243,76.0,7,9,5,8,10,https://www.nature.com/
+5,Web of Science,200,True,2.17,2714,68.0,7,8,3,7,10,https://www.webofscience.com/
+10,UpToDate,200,True,2.16,2806,68.0,7,8,3,7,10,https://www.uptodate.com/
+6,Scopus,403,False,1.64,5631,63.0,7,8,3,7,5,https://www.scopus.com/
+4,Google Scholar,200,True,2.36,133512,59.0,5,5,7,5,10,https://scholar.google.com/

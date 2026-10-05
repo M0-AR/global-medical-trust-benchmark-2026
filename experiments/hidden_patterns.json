@@ -1,0 +1,59 @@
+{
+  "generated_from": "/home/md/src/global-medical-trust-benchmark-2026/data/live_results.json",
+  "patterns": [
+    {
+      "hypothesis": "H1 openness-trust paradox",
+      "nonprofit_mean_trust": 93.4,
+      "commercial_mean_trust": 66.8,
+      "subscription_sites": [
+        "Web of Science",
+        "Scopus",
+        "UpToDate"
+      ],
+      "interpretation": "Nonprofits outscore commercial on trust but 3/10 top-trusted sites are subscription-walled; trust != accessibility."
+    },
+    {
+      "hypothesis": "H2 registry premium",
+      "registry": "ClinicalTrials.gov",
+      "registry_transparency": 10,
+      "interpretation": "ClinicalTrials.gov is the only platform that legally prevents hiding failed human experiments (pre-registration). No journal or index can substitute it."
+    },
+    {
+      "hypothesis": "H3 china-gap",
+      "unreachable_from_mainland": [
+        "Google Scholar"
+      ],
+      "fallback_stack": [
+        "CNKI",
+        "SinoMed/CBM",
+        "Wanfang",
+        "CMA Journals",
+        "Medlive"
+      ],
+      "evidence": "webfetch lite.duckduckgo + sinomed.ac.cn live update logs 2026-09; <6% of 2500 Chinese journals in MEDLINE (Wiley 2007, still cited 2026).",
+      "interpretation": "Any 'global' benchmark that ignores CNKI/SinoMed misses the Chinese clinical corpus entirely."
+    },
+    {
+      "hypothesis": "H4 commercial-index risk",
+      "scholar_authority": 5,
+      "scholar_transparency": 5,
+      "scholar_trust": 59.0,
+      "rank_by_trust": 10,
+      "interpretation": "Scholar maximizes recall (free PDFs, citation graph) but minimizes curation; JAMA 1.54 commercial vs 3.95 gov (2026 MACI study) explains the gap."
+    },
+    {
+      "hypothesis": "H5 liveness surprise (measured, not claimed)",
+      "slowest": {
+        "name": "Nature.com",
+        "latency_s": 5.48,
+        "http_status": 200
+      },
+      "lightest_homepage": {
+        "name": "Web of Science",
+        "content_bytes": 2714
+      },
+      "mean_latency_s": 2.25,
+      "all_http_ok": false
+    }
+  ]
+}
